@@ -36,11 +36,6 @@
       <img class="brand__word" src="rustywordmark.svg" alt="" width="895" height="339">
     </a>
     <div class="nav__actions">
-      <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
-        <!-- Moon shows in light mode, sun in dark mode -->
-        <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="currentColor"/></svg>
-        <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></g></svg>
-      </button>
       <!-- TODO: replace "#" with the App Store URL (all download links). -->
       <a class="btn btn--small" href="#">App Store</a>
     </div>
@@ -150,33 +145,33 @@
     <!-- Complementary, not a replacement.
          To add an app: copy one <li class="app"> and change the name.
          To use a real icon: put the file in an icons/ folder and add
-         <img src="icons/name.png" alt=""> inside .app__icon (it covers the placeholder letter). -->
+         <img src="icons/name.jpg" alt=""> inside .app__icon (it covers the placeholder letter). -->
     <section class="pair" aria-labelledby="pair-title">
       <h2 id="pair-title" class="reveal">Works with how you already learn.</h2>
       <p class="pair__lede reveal" style="--i:1">Keep your tutor. Keep your app. Rusty is the speaking practice in between.</p>
       <ul class="apps" aria-label="Works alongside" data-stagger>
         <li class="app">
-          <span class="app__icon" data-initial="P" aria-hidden="true"></span>
+          <span class="app__icon" data-initial="P" aria-hidden="true"><img src="icons/preply.jpg" alt="" width="120" height="120" loading="lazy"></span>
           <span class="app__name">Preply</span>
         </li>
         <li class="app">
-          <span class="app__icon" data-initial="i" aria-hidden="true"></span>
+          <span class="app__icon" data-initial="i" aria-hidden="true"><img src="icons/italky.jpg" alt="" width="120" height="120" loading="lazy"></span>
           <span class="app__name">italki</span>
         </li>
         <li class="app">
-          <span class="app__icon" data-initial="D" aria-hidden="true"></span>
+          <span class="app__icon" data-initial="D" aria-hidden="true"><img src="icons/duolingo.jpg" alt="" width="120" height="120" loading="lazy"></span>
           <span class="app__name">Duolingo</span>
         </li>
         <li class="app">
-          <span class="app__icon" data-initial="B" aria-hidden="true"></span>
+          <span class="app__icon" data-initial="B" aria-hidden="true"><img src="icons/babbel.jpg" alt="" width="120" height="120" loading="lazy"></span>
           <span class="app__name">Babbel</span>
         </li>
         <li class="app">
-          <span class="app__icon" data-initial="B" aria-hidden="true"></span>
+          <span class="app__icon" data-initial="B" aria-hidden="true"><img src="icons/busuu.jpg" alt="" width="120" height="120" loading="lazy"></span>
           <span class="app__name">Busuu</span>
         </li>
         <li class="app">
-          <span class="app__icon" data-initial="T" aria-hidden="true"></span>
+          <span class="app__icon" data-initial="T" aria-hidden="true"><img src="icons/teacher.jpg" alt="" width="120" height="120" loading="lazy"></span>
           <span class="app__name">Your teacher</span>
         </li>
       </ul>
@@ -214,12 +209,17 @@
 
   <footer class="footer">
     <span>© 2026 Rusty</span>
-    <nav aria-label="Footer">
-      <a href="mailto:support@rusty.talk">support@rusty.talk</a>
-      <!-- TODO: point these at real pages. -->
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
-    </nav>
+    <div class="footer__end">
+      <nav aria-label="Footer">
+        <a href="mailto:support@rusty.talk">support@rusty.talk</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></g></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="currentColor"/></svg>
+      </button>
+    </div>
   </footer>
 
   <script src="script.js"></script>
