@@ -185,6 +185,9 @@ h3 { font-size: clamp(1.5rem, 2.8vw, 2.2rem); line-height: 1.15; letter-spacing:
 .btn:hover { background: var(--paper); color: var(--ink); transform: translateY(-2px); box-shadow: 0 10px 24px -10px color-mix(in srgb, var(--ink) 45%, transparent); }
 .btn:active { transform: translateY(0) scale(0.97); box-shadow: none; }
 .btn--small { padding: 0.45em 1.1em; font-size: 0.9rem; }
+/* App Store buttons carry the Apple logo, which follows the button's text colour. */
+.btn--store { display: inline-flex; align-items: center; justify-content: center; gap: 0.5em; }
+.btn__apple { flex: none; width: 0.95em; height: 1.15em; fill: currentColor; margin-top: -0.12em; }
 
 /* Shared section frame */
 .hero, .intro, .stories, .how, .fit, .pair, .closing {
