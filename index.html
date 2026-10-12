@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rusty · Stop studying. Start speaking.</title>
+  <meta name="description" content="Your language isn’t gone. It’s just rusty. Rusty is someone to talk to in the language you’re learning or getting back, from A1 to B2. Between lessons, on long drives, before a trip. For iPhone.">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:title" content="Rusty · Stop studying. Start speaking.">
+  <meta property="og:description" content="Someone to talk to in the language you’re learning or getting back. Between lessons, on long drives, before a trip.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="rusty_appicon.png">
+  <!-- TODO: add the Smart App Banner once the App Store ID exists:
+       <meta name="apple-itunes-app" content="app-id=XXXXXXXXXX"> -->
+  <link rel="icon" type="image/png" href="rusty_appicon.png">
+  <link rel="apple-touch-icon" href="rusty_appicon.png">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Set the theme before first paint so there's no flash. Saved choice wins, otherwise follow the system. -->
+  <script>
+    (function () {
+      var t;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') {
+        t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      document.documentElement.setAttribute('data-theme', t);
+      document.documentElement.classList.add('js');
+    })();
+  </script>
+</head>
+<body>
+
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Rusty, back to top">
+      <img src="rusty_appicon.png" alt="" width="32" height="32">
+      <img class="brand__word" src="rustywordmark.svg" alt="" width="895" height="339">
+    </a>
+    <div class="nav__actions">
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
+        <!-- Moon shows in light mode, sun in dark mode -->
+        <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="currentColor"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></g></svg>
+      </button>
+      <!-- TODO: replace "#" with the App Store URL (all download links). -->
+      <a class="btn btn--small" href="#">App Store</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- Hero: say who it's for, not what it does -->
+    <section class="hero">
+      <img class="hero__icon" src="rusty_appicon.png" alt="Rusty app icon" width="120" height="120">
+      <h1>Your language isn’t gone.<br>It’s just <img class="wordmark" src="rustywordmark.svg" alt="Rusty" width="895" height="339">.</h1>
+      <p class="sub">Rusty is someone to talk to in the language you’re learning or getting back. Call anytime: between lessons, on long drives, before a trip.</p>
+      <a class="btn" href="#">Download on the App Store</a>
+      <p class="small">For iPhone</p>
+    </section>
+
+    <!-- The people it helps: a horizontal, snap-scrolling row -->
+    <section class="stories" aria-labelledby="stories-title">
+      <div class="stories__head reveal">
+        <h2 id="stories-title">Sound like you?</h2>
+        <div class="stories__nav">
+          <button class="arrow" type="button" data-dir="-1" aria-label="Previous story" aria-controls="story-track">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="arrow" type="button" data-dir="1" aria-label="Next story" aria-controls="story-track">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <ul class="track" id="story-track" tabindex="0" aria-label="Stories, scroll sideways for more" data-stagger>
+        <li class="card">
+          <figure class="photo" data-brief="Photo: someone closing a laptop after an online lesson, phone already in hand.">
+            <img src="phone.jpg" alt="A woman at a café table with her laptop open, smiling and gesturing as she talks on her phone." loading="lazy">
+          </figure>
+          <h3>“Great class on Tuesday. Gone by Friday.”</h3>
+          <p>Talk it through between lessons, and it stays.</p>
+        </li>
+        <li class="card">
+          <figure class="photo" data-brief="Photo: driver on an open highway, phone in a dashboard mount, talking.">
+            <img src="driving.jpg" alt="A driver on a palm-lined highway, one hand on the wheel and one gesturing mid-conversation, his phone in a dashboard mount." loading="lazy">
+          </figure>
+          <h3>“My commute is dead time.”</h3>
+          <p>Phone in the mount, eyes on the road. Make a quick call and put the drive to use.</p>
+        </li>
+        <li class="card">
+          <figure class="photo" data-brief="Photo: someone packing a suitcase, earbuds in, talking and smiling.">
+            <img src="traveling.jpg" alt="A woman packs a suitcase with an earbud in, smiling and talking." loading="lazy">
+          </figure>
+          <h3>“I fly out in six weeks.”</h3>
+          <p>A little every day, and you land ready to speak.</p>
+        </li>
+        <li class="card">
+          <figure class="photo" data-brief="Photo: a lively family dinner, one person leaning in and laughing along.">
+            <img src="family.jpg" alt="Friends sit around a table in a sunny garden, in the middle of a lively conversation." loading="lazy">
+          </figure>
+          <h3>“My in-laws are lovely. I mostly nod.”</h3>
+          <p>Next dinner, join the conversation instead of watching it.</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Who it's for: a half-circle level gauge, A1 to B2 highlighted -->
+    <section class="fit" aria-labelledby="fit-title">
+      <h2 id="fit-title" class="reveal">Built for A1 to B2.</h2>
+      <p class="fit__lede reveal" style="--i:1">Past your first words, not yet fluent. That’s where talking helps the most.</p>
+
+      <figure class="gauge" data-reveal>
+        <svg class="gauge__svg" viewBox="-30 -24 660 340" role="img" aria-labelledby="gauge-title">
+          <title id="gauge-title">A scale of language levels from zero to C2. Rusty covers A1, A2, B1 and B2.</title>
+          <!-- Full scale, zero to C2 -->
+          <path class="gauge__track" d="M60 300 A240 240 0 0 1 540 300" />
+          <!-- Rusty's range, A1 to B2. Draws itself in when scrolled into view. -->
+          <path class="gauge__range" d="M83.8 195.9 A240 240 0 0 1 449.6 112.4" pathLength="1" />
+          <g class="gauge__ticks">
+            <line x1="78" y1="300" x2="42" y2="300" />
+            <line x1="100" y1="203.7" x2="67.6" y2="188.1" />
+            <line class="cut" x1="161.6" y1="126.4" x2="139.1" y2="98.3" />
+            <line class="cut" x1="250.6" y1="83.6" x2="242.6" y2="48.5" />
+            <line class="cut" x1="349.4" y1="83.6" x2="357.4" y2="48.5" />
+            <line x1="438.4" y1="126.4" x2="460.9" y2="98.3" />
+            <line x1="500" y1="203.7" x2="532.4" y2="188.1" />
+            <line x1="522" y1="300" x2="558" y2="300" />
+          </g>
+          <g class="gauge__labels">
+            <text x="17.3" y="235.5">Zero</text>
+            <text class="in" style="--i:0" x="73.3" y="119.2">A1</text>
+            <text class="in" style="--i:1" x="174.2" y="38.7">A2</text>
+            <text class="in" style="--i:2" x="300" y="10">B1</text>
+            <text class="in" style="--i:3" x="425.8" y="38.7">B2</text>
+            <text x="526.7" y="119.2">C1</text>
+            <text x="582.7" y="235.5">C2</text>
+          </g>
+          <g class="gauge__center">
+            <text class="gauge__big" x="300" y="250">A1–B2</text>
+            <text class="gauge__small" x="300" y="290">Rusty is for you</text>
+          </g>
+        </svg>
+
+        <figcaption class="gauge__notes">
+          <p><strong>Starting from zero?</strong> Learn your first words with an app or a tutor, then come back.</p>
+          <p><strong>C1 and up?</strong> You’ve outgrown us. A specialist tutor will take you further.</p>
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- Complementary, not a replacement.
+         To add an app: copy one <li class="app"> and change the name.
+         To use a real icon: put the file in an icons/ folder and add
+         <img src="icons/name.png" alt=""> inside .app__icon (it covers the placeholder letter). -->
+    <section class="pair" aria-labelledby="pair-title">
+      <h2 id="pair-title" class="reveal">Works with how you already learn.</h2>
+      <p class="pair__lede reveal" style="--i:1">Keep your tutor. Keep your app. Rusty is the speaking practice in between.</p>
+      <ul class="apps" aria-label="Works alongside" data-stagger>
+        <li class="app">
+          <span class="app__icon" data-initial="P" aria-hidden="true"></span>
+          <span class="app__name">Preply</span>
+        </li>
+        <li class="app">
+          <span class="app__icon" data-initial="i" aria-hidden="true"></span>
+          <span class="app__name">italki</span>
+        </li>
+        <li class="app">
+          <span class="app__icon" data-initial="D" aria-hidden="true"></span>
+          <span class="app__name">Duolingo</span>
+        </li>
+        <li class="app">
+          <span class="app__icon" data-initial="B" aria-hidden="true"></span>
+          <span class="app__name">Babbel</span>
+        </li>
+        <li class="app">
+          <span class="app__icon" data-initial="B" aria-hidden="true"></span>
+          <span class="app__name">Busuu</span>
+        </li>
+        <li class="app">
+          <span class="app__icon" data-initial="T" aria-hidden="true"></span>
+          <span class="app__name">Your teacher</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- What it actually is, kept short -->
+    <section class="how">
+      <div class="how__copy">
+        <h2 class="reveal">It’s just a conversation.</h2>
+        <p class="reveal" style="--i:1">Open Rusty, call, and talk. About your day, your trip, whatever you covered in class. It remembers what you talked about last time and picks up from there.</p>
+        <p class="reveal" style="--i:2">Stuck on a word? Ask, and you get a nudge, not a lecture. No time to call? Send a voice note. No lessons, no streaks, no scores.</p>
+      </div>
+      <div class="phone reveal reveal--scale" style="--i:1">
+        <video src="videos/how-it-works.mp4" muted loop playsinline preload="metadata" aria-label="A call with Rusty on iPhone"></video>
+      </div>
+    </section>
+
+    <!-- Who, in one paragraph -->
+    <section class="intro">
+      <h2 class="reveal">For people who know a little, or used to know a lot.</h2>
+      <div class="intro__text">
+        <p class="reveal" style="--i:1">You don’t need perfect grammar. If you can put a few sentences together, even slowly, you have enough to start talking.</p>
+        <p class="reveal" style="--i:2">What helps next is saying it out loud, often, with someone who doesn’t mind waiting while you find the word. That’s how a language grows, and how it stays.</p>
+      </div>
+    </section>
+
+    <!-- Closing -->
+    <section class="closing">
+      <img class="hero__icon reveal reveal--scale" src="rusty_appicon.png" alt="" width="120" height="120">
+      <h2 class="reveal" style="--i:1">Stop studying.<br>Start speaking.</h2>
+      <a class="btn reveal" style="--i:2" href="#">Download on the App Store</a>
+      <p class="small reveal" style="--i:3">For iPhone</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© 2026 Rusty</span>
+    <nav aria-label="Footer">
+      <a href="mailto:support@rusty.talk">support@rusty.talk</a>
+      <!-- TODO: point these at real pages. -->
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </nav>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
