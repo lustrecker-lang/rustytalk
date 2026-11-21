@@ -12,7 +12,7 @@
 
   function applyTheme(theme) {
     root.setAttribute('data-theme', theme);
-    if (themeMeta) themeMeta.setAttribute('content', theme === 'dark' ? '#000000' : '#ffffff');
+    if (themeMeta) themeMeta.setAttribute('content', theme === 'dark' ? '#060908' : '#f3f6f5');
     if (toggle) toggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
   }
   function savedTheme() {
@@ -60,9 +60,49 @@
         track.scrollBy({ left: Number(a.dataset.dir) * step(), behavior: reduce ? 'auto' : 'smooth' });
       });
     });
-    track.addEventListener('scroll', updateArrows, { passive: true });
-    window.addEventListener('resize', updateArrows);
-    updateArrows();
+    /* Page dots (phones): one per card, the nearest one lit. */
+    var dotsBox = document.getElementById('story-dots');
+    var cards = track.querySelectorAll('.card');
+    var dots = [];
+    if (dotsBox) {
+      cards.forEach(function () { dots.push(dotsBox.appendChild(document.createElement('i'))); });
+    }
+    var updateDots = function () {
+      if (!dots.length) return;
+      var max = track.scrollWidth - track.clientWidth;
+      var on = max > 0 && track.scrollLeft >= max - 2 ? dots.length - 1 : Math.round(track.scrollLeft / step());
+      dots.forEach(function (d, i) { d.classList.toggle('is-on', i === on); });
+    };
+    var onTrack = function () { updateArrows(); updateDots(); };
+    track.addEventListener('scroll', onTrack, { passive: true });
+    window.addEventListener('resize', onTrack);
+    onTrack();
+  }
+
+  /* Hero mouths lean away from the pointer a little (mouse only). */
+  var floaters = document.querySelector('.floaters');
+  if (floaters && !reduce && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    window.addEventListener('pointermove', function (e) {
+      floaters.style.setProperty('--mx', (e.clientX / window.innerWidth - 0.5).toFixed(3));
+      floaters.style.setProperty('--my', (e.clientY / window.innerHeight - 0.5).toFixed(3));
+    }, { passive: true });
+  }
+
+  /* Phones: the download bar shows while neither big download button is on screen. */
+  var dock = document.getElementById('dock');
+  var ctas = document.querySelectorAll('#hero-cta, #closing-cta');
+  if (dock && ctas.length && 'IntersectionObserver' in window) {
+    var seen = new Set();
+    var dockLink = dock.querySelector('a');
+    var dio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) seen.add(e.target); else seen.delete(e.target);
+      });
+      var up = seen.size === 0;
+      dock.classList.toggle('is-up', up);
+      if (dockLink) dockLink.tabIndex = up ? 0 : -1;
+    });
+    ctas.forEach(function (c) { dio.observe(c); });
   }
 
   /* Scroll reveal: elements with .reveal fade up once. Children of [data-stagger] follow one by one. */
@@ -131,6 +171,12 @@
   /* Videos: play only while on screen (saves battery and data).
      With reduced motion, they stay paused and get controls. */
   var videos = document.querySelectorAll('.phone video');
+  /* The phone shows a drawn call until a real recording has loaded over it. */
+  videos.forEach(function (v) {
+    var phone = v.closest('.phone');
+    function ready() { if (phone) phone.classList.add('has-video'); }
+    if (v.readyState >= 2) ready(); else v.addEventListener('loadeddata', ready);
+  });
   if (reduce) {
     videos.forEach(function (v) { v.pause(); v.controls = true; });
   } else if (!('IntersectionObserver' in window)) {

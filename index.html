@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rusty · Stop studying. Start speaking.</title>
   <meta name="description" content="Your language isn’t gone. It’s just rusty. Rusty is someone to talk to in the language you’re learning or getting back, from A1 to B2. Between lessons, on long drives, before a trip. For iPhone.">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#f3f6f5">
   <meta property="og:title" content="Rusty · Stop studying. Start speaking.">
   <meta property="og:description" content="Someone to talk to in the language you’re learning or getting back. Between lessons, on long drives, before a trip.">
   <meta property="og:type" content="website">
@@ -13,7 +13,7 @@
   <!-- TODO: add the Smart App Banner once the App Store ID exists:
        <meta name="apple-itunes-app" content="app-id=XXXXXXXXXX"> -->
   <link rel="icon" type="image/png" href="rusty_appicon.png">
-  <link rel="apple-touch-icon" href="rusty_appicon.png">
+  <link rel="apple-touch-icon" href="art/touch-icon.png">
   <link rel="stylesheet" href="styles.css">
   <!-- Set the theme before first paint so there's no flash. Saved choice wins, otherwise follow the system. -->
   <script>
@@ -37,7 +37,7 @@
 
   <header class="nav">
     <a class="brand" href="#top" aria-label="Rusty, back to top">
-      <img src="rusty_appicon.png" alt="" width="32" height="32">
+      <img src="rusty_appicon.png" alt="" width="34" height="34">
       <img class="brand__word" src="rustywordmark.svg" alt="" width="895" height="339">
     </a>
     <div class="nav__actions">
@@ -50,11 +50,22 @@
 
     <!-- Hero: say who it's for, not what it does -->
     <section class="hero">
+      <!-- Decorative mouths from the app, drifting behind the hero. -->
+      <div class="floaters" aria-hidden="true">
+        <span class="floater f1" style="--d:18"><img src="art/mouth03.png" alt="" width="280" height="280"></span>
+        <span class="floater f2" style="--d:-26"><img src="art/mouth09.png" alt="" width="280" height="280"></span>
+        <span class="floater f3" style="--d:34"><img src="art/mouth11.png" alt="" width="280" height="280"></span>
+        <span class="floater f4" style="--d:-14"><img src="art/mouth13.png" alt="" width="280" height="280"></span>
+        <span class="floater f5" style="--d:22"><img src="art/mouth05.png" alt="" width="280" height="280"></span>
+        <span class="floater f6" style="--d:-30"><img src="art/mouth06.png" alt="" width="280" height="280"></span>
+      </div>
+
       <img class="hero__icon" src="rusty_appicon.png" alt="Rusty app icon" width="120" height="120">
+      <p class="chip"><span class="chip__dot"></span>Speaking practice for iPhone</p>
       <h1>Your language isn’t gone.<br>It’s just <img class="wordmark" src="rustywordmark.svg" alt="Rusty" width="895" height="339">.</h1>
       <p class="sub">Rusty is someone to talk to in the language you’re learning or getting back. Call anytime: between lessons, on long drives, before a trip.</p>
-      <a class="btn btn--store" href="#"><svg class="btn__apple" aria-hidden="true" focusable="false"><use href="#apple-logo"/></svg>Download on the App Store</a>
-      <p class="small">For iPhone</p>
+      <a class="btn btn--store btn--lg" id="hero-cta" href="#"><svg class="btn__apple" aria-hidden="true" focusable="false"><use href="#apple-logo"/></svg>Download on the App Store</a>
+      <p class="small">For iPhone · A1 to B2</p>
     </section>
 
     <!-- The people it helps: a horizontal, snap-scrolling row -->
@@ -76,29 +87,82 @@
           <figure class="photo" data-brief="Photo: someone closing a laptop after an online lesson, phone already in hand.">
             <img src="phone.jpg" alt="A woman at a café table with her laptop open, smiling and gesturing as she talks on her phone." loading="lazy">
           </figure>
-          <h3>“Great class on Tuesday. Gone by Friday.”</h3>
-          <p>Talk it through between lessons, and it stays.</p>
+          <div class="card__cap">
+            <h3>“Great class on Tuesday. Gone by Friday.”</h3>
+            <p>Talk it through between lessons, and it stays.</p>
+          </div>
         </li>
         <li class="card">
           <figure class="photo" data-brief="Photo: driver on an open highway, phone in a dashboard mount, talking.">
             <img src="driving.jpg" alt="A driver on a palm-lined highway, one hand on the wheel and one gesturing mid-conversation, his phone in a dashboard mount." loading="lazy">
           </figure>
-          <h3>“My commute is dead time.”</h3>
-          <p>Phone in the mount, eyes on the road. Make a quick call and put the drive to use.</p>
+          <div class="card__cap">
+            <h3>“My commute is dead time.”</h3>
+            <p>Phone in the mount, eyes on the road. Make a quick call and put the drive to use.</p>
+          </div>
         </li>
         <li class="card">
           <figure class="photo" data-brief="Photo: someone packing a suitcase, earbuds in, talking and smiling.">
             <img src="traveling.jpg" alt="A woman packs a suitcase with an earbud in, smiling and talking." loading="lazy">
           </figure>
-          <h3>“I fly out in six weeks.”</h3>
-          <p>A little every day, and you land ready to speak.</p>
+          <div class="card__cap">
+            <h3>“I fly out in six weeks.”</h3>
+            <p>A little every day, and you land ready to speak.</p>
+          </div>
         </li>
         <li class="card">
           <figure class="photo" data-brief="Photo: a lively family dinner, one person leaning in and laughing along.">
             <img src="family.jpg" alt="Friends sit around a table in a sunny garden, in the middle of a lively conversation." loading="lazy">
           </figure>
-          <h3>“My in-laws are lovely. I mostly nod.”</h3>
-          <p>Next dinner, join the conversation instead of watching it.</p>
+          <div class="card__cap">
+            <h3>“My in-laws are lovely. I mostly nod.”</h3>
+            <p>Next dinner, join the conversation instead of watching it.</p>
+          </div>
+        </li>
+      </ul>
+      <div class="dots" id="story-dots" aria-hidden="true"></div>
+    </section>
+
+    <!-- What's in the app, with its own artwork -->
+    <section class="features" aria-labelledby="features-title">
+      <h2 id="features-title" class="reveal">One teacher. Many ways to keep talking.</h2>
+      <p class="lede reveal" style="--i:1">A call when you have time, a voice note when you don’t.</p>
+
+      <ul class="bento" data-stagger>
+        <li class="feat feat--lg glass">
+          <img class="feat__art" src="art/call.png" alt="" width="384" height="384" loading="lazy">
+          <div class="feat__text">
+            <h3>Call anytime</h3>
+            <p>Open Rusty and talk. About your day, your trip, whatever you covered in class. Even five minutes counts.</p>
+          </div>
+        </li>
+        <li class="feat feat--lg glass">
+          <img class="feat__art" src="art/teachercalls.png" alt="" width="384" height="384" loading="lazy">
+          <div class="feat__text">
+            <h3>Your teacher calls you</h3>
+            <p>Some days your phone rings and it’s your teacher. Pick up and talk, like you would with a friend.</p>
+          </div>
+        </li>
+        <li class="feat glass">
+          <img class="feat__art" src="art/voicenotes.png" alt="" width="384" height="384" loading="lazy">
+          <div class="feat__text">
+            <h3>Voice notes</h3>
+            <p>A short voice note each day. Answer out loud whenever you have a minute.</p>
+          </div>
+        </li>
+        <li class="feat glass">
+          <img class="feat__art" src="art/afterclass.png" alt="" width="384" height="384" loading="lazy">
+          <div class="feat__text">
+            <h3>After Class <span class="tag">Pro</span></h3>
+            <p>Record your lesson. Rusty keeps the new words, the corrections and the homework, and brings them back until they stick.</p>
+          </div>
+        </li>
+        <li class="feat glass">
+          <img class="feat__art" src="art/privacy.png" alt="" width="384" height="384" loading="lazy">
+          <div class="feat__text">
+            <h3>Private by default</h3>
+            <p>Your voice isn’t kept unless you choose. No ads, no selling your data. <a href="privacy.html">How it works</a></p>
+          </div>
         </li>
       </ul>
     </section>
@@ -106,11 +170,18 @@
     <!-- Who it's for: a half-circle level gauge, A1 to B2 highlighted -->
     <section class="fit" aria-labelledby="fit-title">
       <h2 id="fit-title" class="reveal">Built for A1 to B2.</h2>
-      <p class="fit__lede reveal" style="--i:1">Past your first words, not yet fluent. That’s where talking helps the most.</p>
+      <p class="lede reveal" style="--i:1">Past your first words, not yet fluent. That’s where talking helps the most.</p>
 
-      <figure class="gauge" data-reveal>
+      <figure class="gauge glass" data-reveal>
         <svg class="gauge__svg" viewBox="-30 -24 660 340" role="img" aria-labelledby="gauge-title">
           <title id="gauge-title">A scale of language levels from zero to C2. Rusty covers A1, A2, B1 and B2.</title>
+          <defs>
+            <linearGradient id="gauge-grad" x1="80" y1="200" x2="450" y2="110" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#7fe0bd"/>
+              <stop offset="0.55" stop-color="#8fd3f4"/>
+              <stop offset="1" stop-color="#b9a6ff"/>
+            </linearGradient>
+          </defs>
           <!-- Full scale, zero to C2 -->
           <path class="gauge__track" d="M60 300 A240 240 0 0 1 540 300" />
           <!-- Rusty's range, A1 to B2. Draws itself in when scrolled into view. -->
@@ -153,8 +224,8 @@
          <img src="icons/name.jpg" alt=""> inside .app__icon (it covers the placeholder letter). -->
     <section class="pair" aria-labelledby="pair-title">
       <h2 id="pair-title" class="reveal">Works with how you already learn.</h2>
-      <p class="pair__lede reveal" style="--i:1">Keep your tutor. Keep your app. Rusty is the speaking practice in between.</p>
-      <ul class="apps" aria-label="Works alongside" data-stagger>
+      <p class="lede reveal" style="--i:1">Keep your tutor. Keep your app. Rusty is the speaking practice in between.</p>
+      <ul class="apps glass" aria-label="Works alongside" data-stagger>
         <li class="app">
           <span class="app__icon" data-initial="P" aria-hidden="true"><img src="icons/preply.jpg" alt="" width="120" height="120" loading="lazy"></span>
           <span class="app__name">Preply</span>
@@ -189,26 +260,48 @@
         <p class="reveal" style="--i:1">Open Rusty, call, and talk. About your day, your trip, whatever you covered in class. It remembers what you talked about last time and picks up from there.</p>
         <p class="reveal" style="--i:2">Stuck on a word? Ask, and you get a nudge, not a lecture. No time to call? Send a voice note. No lessons, no streaks, no scores.</p>
       </div>
+      <!-- An illustration of a call. If videos/how-it-works.mp4 exists, the recording plays on top of it. -->
       <div class="phone reveal reveal--scale" style="--i:1">
-        <video src="videos/how-it-works.mp4" muted loop playsinline preload="metadata" aria-label="A call with Rusty on iPhone"></video>
+        <div class="phone__screen">
+          <div class="call" aria-hidden="true">
+            <p class="call__status"><span class="call__live"></span>On a call · 4:12</p>
+            <div class="call__face">
+              <span class="call__ring"></span>
+              <span class="call__ring"></span>
+              <img src="art/good.png" alt="" width="384" height="384" loading="lazy">
+            </div>
+            <p class="call__bubble">Und wie war dein Wochenende?</p>
+            <div class="call__wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="call__controls">
+              <span class="call__btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3zM6 11a6 6 0 0 0 12 0M12 17v4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="call__btn call__btn--end"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 14.5c5-4.7 12-4.7 17 0l-2 2.2-3.2-1.6v-2.3a9 9 0 0 0-6.600 0v2.300l-3.200 1.600z" fill="currentColor"/></svg></span>
+              <span class="call__btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10v4h3l4 4V6l-4 4zM16 9a4 4 0 0 1 0 6M18.500 6.500a8 8 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </div>
+          <video src="videos/how-it-works.mp4" muted loop playsinline preload="metadata" aria-label="A call with Rusty on iPhone"></video>
+        </div>
       </div>
     </section>
 
     <!-- Who, in one paragraph -->
     <section class="intro">
-      <h2 class="reveal">For people who know a little, or used to know a lot.</h2>
-      <div class="intro__text">
-        <p class="reveal" style="--i:1">You don’t need perfect grammar. If you can put a few sentences together, even slowly, you have enough to start talking.</p>
-        <p class="reveal" style="--i:2">What helps next is saying it out loud, often, with someone who doesn’t mind waiting while you find the word. That’s how a language grows, and how it stays.</p>
+      <div class="intro__card glass">
+        <h2 class="reveal">For people who know a little, or used to know a lot.</h2>
+        <div class="intro__text">
+          <p class="reveal" style="--i:1">You don’t need perfect grammar. If you can put a few sentences together, even slowly, you have enough to start talking.</p>
+          <p class="reveal" style="--i:2">What helps next is saying it out loud, often, with someone who doesn’t mind waiting while you find the word. That’s how a language grows, and how it stays.</p>
+        </div>
       </div>
     </section>
 
     <!-- Closing -->
     <section class="closing">
-      <img class="hero__icon reveal reveal--scale" src="rusty_appicon.png" alt="" width="120" height="120">
-      <h2 class="reveal" style="--i:1">Stop studying.<br>Start speaking.</h2>
-      <a class="btn btn--store reveal" style="--i:2" href="#"><svg class="btn__apple" aria-hidden="true" focusable="false"><use href="#apple-logo"/></svg>Download on the App Store</a>
-      <p class="small reveal" style="--i:3">For iPhone</p>
+      <div class="closing__card glass">
+        <img class="hero__icon reveal reveal--scale" src="rusty_appicon.png" alt="" width="120" height="120">
+        <h2 class="reveal" style="--i:1">Stop studying.<br>Start speaking.</h2>
+        <a class="btn btn--store btn--lg reveal" id="closing-cta" style="--i:2" href="#"><svg class="btn__apple" aria-hidden="true" focusable="false"><use href="#apple-logo"/></svg>Download on the App Store</a>
+        <p class="small reveal" style="--i:3">For iPhone</p>
+      </div>
     </section>
   </main>
 
@@ -226,6 +319,13 @@
       </button>
     </div>
   </footer>
+
+  <!-- Phones only: a download bar that slides up once the first button has scrolled away. -->
+  <div class="dock" id="dock">
+    <img src="rusty_appicon.png" alt="" width="40" height="40">
+    <div class="dock__text"><strong>Rusty</strong><span>Stop studying. Start speaking.</span></div>
+    <a class="btn btn--small btn--store" href="#" tabindex="-1"><svg class="btn__apple" aria-hidden="true" focusable="false"><use href="#apple-logo"/></svg>Get</a>
+  </div>
 
   <script src="script.js"></script>
 </body>
